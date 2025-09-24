@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // or use a dynamic origin check
+    origin: "https://dezineskv.github.io/weather-react/", // or use a dynamic origin check
     credentials: true,
   })
 );
