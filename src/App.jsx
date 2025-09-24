@@ -51,7 +51,7 @@ function App() {
           </div>
         </form>
         <div className="weather-status text-white text-center">
-          Your city's current weather:
+          Search your city's current weather
           {data && (
             <div>
               <h2>{data.name}</h2>
