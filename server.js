@@ -17,19 +17,19 @@ app.use(
 
 app.use(express.json());
 
-const path = require("path");
-app.use(express.static(path.join(__dirname, "../client/build")));
+// const path = require("path");
+// app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 // Proxy route to external API
 app.get("/weather", async (req, res) => {
   const city = req.query.q || "";
-  // const apiKey = import.meta.env.VITE_API_KEY;
-  const apiLink = process.env.API_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiLink}`;
+  const apiKey = import.meta.env.VITE_API_KEY;
+  // const apiLink = process.env.API_KEY;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
   try {
     const response = await fetch(url);
