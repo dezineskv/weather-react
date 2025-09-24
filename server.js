@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 // import fetch from "node-fetch";
-// import path from "path";
+import path from "path";
 // const fetch = require("node-fetch");
 dotenv.config({ path: ".env" });
 const app = express();
@@ -10,29 +10,26 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://dezineskv.github.io/weather-react/", // or use a dynamic origin check
+    origin: "https://dezineskv.github.io/weather-react/", // or dynamic origin
     credentials: true,
   })
 );
 
 app.use(express.json());
 
-// const path = require("path");
-// eslint-disable-next-line no-undef
-// app.use(express.static(path.join(__dirname, "../client/build")));
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../client/build")));
 
-// app.get("*", (req, res) => {
-// eslint-disable-next-line no-undef
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Proxy route to external API
 app.get("/weather", async (req, res) => {
   const city = req.query.q || "";
-  // eslint-disable-next-line no-undef
-  const apiKey = import.meta.env.VITE_API_KEY;
-  // const apiLink = process.env.API_KEY;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  // const apiKey = import.meta.env.VITE_API_KEY;
+  const apiLink = process.env.API_KEY;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiLink}`;
 
   try {
     const response = await fetch(url);
