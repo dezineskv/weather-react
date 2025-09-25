@@ -1,9 +1,10 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
-// import fetch from "node-fetch";
+import fetch from "node-fetch"; // Ensure fetch is available in Node.js
 // import path from "path";
 // const fetch = require("node-fetch");
+import process from "process"; // Explicitly import process for ESM environments
 dotenv.config({ path: ".env" });
 const app = express();
 // Load environment variables
@@ -27,8 +28,7 @@ app.use(express.json());
 // Proxy route to external API
 app.get("/weather", async (req, res) => {
   const city = req.query.q || "";
-  const apiKey = import.meta.env.VITE_API_KEY;
-  // const apiLink = process.env.API_KEY;
+  const apiKey = process.env.VITE_API_KEY;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
   try {
