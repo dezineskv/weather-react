@@ -12,7 +12,7 @@ function App() {
 
   async function fetchWeather() {
     try {
-      const res = await fetch(`http://localhost:3001/weather?q=${city}`);
+      const res = await fetch(`/weather?q=${city}`);
       const data = await res.json();
       // const temperature = Math.round(((data.main.temp - 273.15) * 9) / 5 + 32);
       console.log(data);

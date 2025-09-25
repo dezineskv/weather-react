@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://dezineskv.github.io/weather-react/", // or dynamic origin
+    origin: "https://weather-react-two-delta.vercel.app/", // or dynamic origin
     credentials: true,
   })
 );
