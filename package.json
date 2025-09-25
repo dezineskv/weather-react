@@ -2,6 +2,8 @@
   "name": "weather",
   "private": true,
   "version": "0.0.0",
+  "proxy": "http://localhost:3001",
+  "description": "A weather app built with React and Vite",
   "homepage": "https://dezineskv.github.io/weather-react/",
   "type": "module",
   "scripts": {
