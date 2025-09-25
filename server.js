@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 // import fetch from "node-fetch";
-import path from "path";
+// import path from "path";
 // const fetch = require("node-fetch");
 dotenv.config({ path: ".env" });
 const app = express();
